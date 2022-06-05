@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*/packages/*"
+  ],
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxt/webpack-builder": "^3.0.0-rc.3",
+    "@types/three": "^0.141.0",
+    "glslify-hex": "^2.1.1",
+    "glslify-import": "^3.1.0",
+    "glslify-loader": "^2.0.0",
+    "nuxt": "3.0.0-rc.3",
+    "raw-loader": "^4.0.2",
+    "sass-loader": "^13.0.0"
+  },
+  "dependencies": {
+    "three": "^0.141.0",
+    "vue-demi": "^0.13.1"
+  }
+}

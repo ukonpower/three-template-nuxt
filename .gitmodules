@@ -1,0 +1,3 @@
+[submodule "packages/ore-three"]
+	path = packages/ore-three
+	url = https://github.com/ukonpower/ore-three.git
