@@ -3,12 +3,10 @@ import { MainScene } from './MainScene';
 
 export class GL {
 
-	private canvas: HTMLCanvasElement | null;
-	private controller: ORE.Controller;
+	public controller: ORE.Controller;
+	public scene: MainScene;
 
-	constructor(canvas: HTMLCanvasElement) {
-
-		this.canvas = canvas;
+	constructor() {
 
 		/* ------------------------
 			checkUA
@@ -21,12 +19,19 @@ export class GL {
 			init ORE
 		------------------------ */
 
+		this.scene = new MainScene();
+
 		this.controller = new ORE.Controller();
-		this.controller.addLayer(new MainScene(), {
+		this.controller.addLayer(this.scene, {
 			name: 'Main',
-			canvas: this.canvas
 		});
 
+	}
+
+	public dispose() {
+
+		this.controller.dispose();
+		
 	}
 
 }

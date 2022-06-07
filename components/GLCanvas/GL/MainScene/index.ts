@@ -22,6 +22,11 @@ export class MainScene extends ORE.BaseLayer {
 
 		super.onBind(info);
 
+		this.dispatchEvent({
+			type: 'createRenderer',
+			renderer: this.renderer,
+		})
+
 		this.gManager = new GlobalManager();
 
 		this.gManager.assetManager.load({
@@ -44,6 +49,26 @@ export class MainScene extends ORE.BaseLayer {
 			this.onResize();
 
 		});
+
+	}
+
+	public async getRenderer () {
+
+		if( this.renderer ) {
+
+			return this.renderer;
+		
+		}
+
+		return await new Promise<THREE.WebGLRenderer>( (r) => {
+
+			this.addEventListener('createRenderer', (e) => {
+				
+				r( e.renderer as THREE.WebGLRenderer )
+				
+			})
+			
+		})
 
 	}
 
